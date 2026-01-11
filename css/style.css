@@ -95,3 +95,42 @@
 
 .style-magazine #article-layer { background-color: #fdfbf7; color: #1a1a1a; }
 .style-magazine .spotlight-mask { backdrop-filter: grayscale(1) blur(var(--focus-blur)); }
+#device-blocker {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: radial-gradient(circle at center, #0f1115 0%, #050505 100%); /* Cite: 1, 5 */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+@media (max-width: 1250px) { /* Cite: 6 */
+    #device-blocker { display: flex; }
+}
+
+.blocker-glass {
+    background: linear-gradient(145deg, rgba(25, 25, 30, 0.8) 0%, rgba(10, 10, 12, 0.9) 100%); /* Cite: 1, 5 */
+    backdrop-filter: blur(40px);
+    padding: 4rem 2.5rem;
+    border-radius: 3.5rem; /* Cite: 1 */
+    width: 100%;
+    max-width: 440px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    box-shadow: 0 50px 100px -20px rgba(0, 0, 0, 0.7);
+    text-align: center;
+}
+
+/* Subtle Animated Background */
+#device-blocker::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(99, 102, 241, 0.05) 1px, transparent 1px); /* Cite: 5 */
+    background-size: 32px 32px;
+    opacity: 0.4;
+    z-index: 1;
+    pointer-events: none;
+}
